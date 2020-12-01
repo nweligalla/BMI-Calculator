@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import '../components/constants.dart';
+
+enum Unit {
+  height,
+  weight,
+}
 
 class WeightHeightSelector extends StatelessWidget {
   final Function onChanged;
-  final String unit;
+  final Unit unit;
   final double min;
   final double max;
   final double value;
@@ -18,18 +24,39 @@ class WeightHeightSelector extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text(unit),
-          Slider(
-            value: value,
-            onChanged: onChanged,
-            max: max,
-            min: min,
-            divisions: (max - min).toInt(),
+          Text(
+            unit == Unit.height ? "height" : "weight",
+            style: kTitleTextStyle,
+          ),
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              activeTrackColor: grey,
+              inactiveTrackColor: grey,
+              overlayColor: Theme.of(context).accentColor,
+              thumbColor: Theme.of(context).accentColor,
+            ),
+            child: Slider(
+              value: value,
+              onChanged: onChanged,
+              max: max,
+              min: min,
+              divisions: ((max - min) * 100).toInt(),
+            ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(value.toString()),
-              Text(unit == "weight" ? "kg" : "cm"),
+              Text(
+                value.toStringAsFixed(2),
+                style: kValueTextStyle,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                unit == Unit.weight ? "kg" : "cm",
+                style: kValueTextStyle,
+              ),
             ],
           )
         ],

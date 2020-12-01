@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/constants.dart';
 
 class CalculateButton extends StatelessWidget {
   final Function onTap;
@@ -12,12 +13,15 @@ class CalculateButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.all(
-            Radius.circular(50),
+            Radius.circular(60),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-          child: Text("Calculate"),
+          padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 40),
+          child: Text(
+            "Calculate",
+            style: kCalculateBtntextStyle,
+          ),
         ),
       ),
     );

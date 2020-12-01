@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GenderButton extends StatelessWidget {
   final bool isSelected;
-  final bool isMale;
   final Function onTap;
+  final IconData icon;
   GenderButton({
     @required this.isSelected,
-    @required this.isMale,
     @required this.onTap,
+    @required this.icon,
   });
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isSelected ? null : onTap,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
@@ -21,7 +20,7 @@ class GenderButton extends StatelessWidget {
             width: 2.0,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(45),
+            Radius.circular(35),
           ),
           color: isSelected
               ? Theme.of(context).accentColor
@@ -29,13 +28,13 @@ class GenderButton extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            vertical: 8,
-            horizontal: 35,
+            vertical: 10,
+            horizontal: 45,
           ),
           child: Icon(
-            isMale ? FontAwesomeIcons.mars : FontAwesomeIcons.venus,
+            icon,
+            size: 47,
             color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
-            size: 37,
           ),
         ),
       ),
