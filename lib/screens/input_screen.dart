@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import './output_screen.dart';
 
 class InputScreen extends StatefulWidget {
-  static const pageRoute = '/dataInputScreen';
+  static const pageRoute = '/inputScreen';
   @override
   _InputScreenState createState() => _InputScreenState();
 }

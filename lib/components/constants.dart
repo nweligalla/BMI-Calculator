@@ -42,3 +42,18 @@ const kTitleTextStyle = TextStyle(
 );
 
 var grey = Colors.grey.shade400;
+
+// result widget
+
+var kBMItextStyle = TextStyle(
+  fontSize: 120,
+  color: grey,
+  fontFamily: "VarelaRound",
+);
+
+var kResultTextStyle = TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.w500,
+  color: Colors.blueGrey,
+  fontFamily: "VarelaRound",
+);
